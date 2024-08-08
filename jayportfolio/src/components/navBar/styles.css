@@ -1,0 +1,106 @@
+/* Navbar container styling */
+.navbar {
+  background: radial-gradient(circle at top left, #1a1a1a, #000000); /* Dark mode with a sleek gradient */
+  display: flex;
+  justify-content: center; /* Center the contents horizontally */
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Deeper shadow for more emphasis */
+}
+
+/* Logo styling */
+.navbar__container__logo {
+  color: #00bcd4; /* Bright cyan for a futuristic feel */
+  font-family: 'Orbitron', sans-serif; /* Futuristic font */
+  font-weight: bold;
+  font-size: 1.6rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+/* Center logo and menu in the navbar */
+.navbar__container {
+  display: flex;
+  justify-content: center; /* Center the contents horizontally */
+  align-items: center;
+}
+
+/* Menu container styling */
+.navbar__container__menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+/* Menu item styling */
+.navbar__container__menu__item {
+  position: relative;
+  margin-right: 2rem;
+}
+
+/* Menu links styling */
+.navbar__container__menu__item__links {
+  color: #00bcd4; /* Light cyan */
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 0.5rem;
+  font-family: 'Roboto', sans-serif; /* Modern font */
+  font-size: 1rem;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+.navbar__container__menu__item__links:hover,
+.navbar__container__menu__item__links.active {
+  color: #03a9f4; /* Bright cyan on hover */
+  border-bottom: 3px solid #03a9f4; /* Active state underline */
+}
+
+/* Tooltip styling */
+.tooltip {
+  visibility: hidden;
+  width: 120px; /* Adjusted width */
+  background: rgba(0, 0, 0, 0.9); /* Darker tooltip background */
+  color: #00bcd4; /* Light cyan text */
+  text-align: center;
+  border-radius: 8px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px; /* Centered tooltip */
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  transform: translateY(10px); /* Initial position */
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
+}
+
+/* Tooltip visibility on hover */
+.navbar__container__menu__item__links:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0); /* Move tooltip to final position */
+}
+
+/* Nav icon styling */
+.nav-icon {
+  cursor: pointer;
+  color: #ffffff; /* White icon color */
+  font-size: 1.6rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.nav-icon:hover {
+  color: #00bcd4; /* Light cyan on hover */
+  transform: scale(1.2); /* Slightly larger icon */
+}

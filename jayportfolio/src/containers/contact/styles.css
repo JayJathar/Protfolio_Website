@@ -1,0 +1,313 @@
+/* Full-page container for the contact form with background animation */
+.contact-form-fullpage {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  animation: backgroundAnimation 30s ease infinite;
+  background: linear-gradient(120deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.55));
+}
+
+/* Background animation effect */
+@keyframes backgroundAnimation {
+  0% {
+    background: linear-gradient(120deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.55));
+  }
+  50% {
+    background: linear-gradient(120deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65));
+  }
+  100% {
+    background: linear-gradient(120deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.55));
+  }
+}
+
+/* Overlay to enhance content readability */
+.contact-form-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align items to the top */
+  padding-top: 50px; /* Adjust top padding to move the form down */
+  z-index: 1;
+}
+
+/* Contact form content styling with transparent black background */
+.contact-form-content {
+  position: relative;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 30px; /* Reduced padding */
+  border-radius: 15px; /* Adjusted border radius */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+  max-width: 700px; /* Reduced max-width */
+  width: 100%;
+  z-index: 2;
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* Title styling */
+.contact-form-title {
+  font-size: 2.5em; /* Adjusted font size */
+  margin-bottom: 20px;
+  color: #00ff99;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(0, 255, 153, 0.6);
+}
+
+/* Grid for contact cards */
+.contact-form-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; /* Adjusted gap */
+  justify-content: center;
+}
+
+/* Contact card styling */
+.contact-card {
+  display: flex;
+  align-items: center;
+  padding: 15px; /* Reduced padding */
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 1s ease-out;
+  width: 100%;
+  max-width: 320px; /* Adjusted max-width */
+}
+
+/* Contact card hover effect */
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 255, 153, 0.7);
+}
+
+/* Contact card icon styling */
+.contact-card i {
+  font-size: 2.4em; /* Adjusted icon size */
+  margin-right: 15px;
+}
+
+/* Contact card info styling */
+.contact-card-info {
+  text-align: left;
+}
+
+.contact-card-title {
+  font-size: 1.4em; /* Adjusted font size */
+  margin: 0;
+}
+
+.contact-card-description {
+  font-size: 1em;
+  color: #ddd;
+}
+
+/* Individual contact card color accents */
+.linkedin {
+  border-left: 5px solid #00aaff; /* Adjusted border size */
+}
+
+.email {
+  border-left: 5px solid #ff4466;
+}
+
+.github {
+  border-left: 5px solid #00ff99;
+}
+.phno {
+  border-left: 5px solid rgb(255, 89, 0);
+}
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Keyframes for fade-in-up effect */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Styling for phone number display with color accent */
+.phone-number-display {
+  margin-top: 20px; /* Adjusted margin */
+  text-align: center;
+  padding: 10px; /* Reduced padding */
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-left: 5px solid #34b7f1; /* Adjusted border size */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Phone number display hover effect */
+.phone-number-display:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 255, 153, 0.7);
+}
+
+/* Phone number text styling */
+.phone-number-display p {
+  font-size: 16px; /* Adjusted font size */
+  color: #f0f0f0;
+  margin: 0;
+}
+
+/* Link styling within phone number display */
+.phone-number-display a {
+  color: #34b7f1;
+  text-decoration: none;
+}
+
+/* Link hover styling */
+.phone-number-display a:hover {
+  text-decoration: underline;
+}
+
+/* Phone number input field styling */
+.phone-number-input {
+  border: none;
+  padding: 10px; /* Reduced padding */
+  font-size: 16px; /* Match font size with other input fields */
+  border-left: 5px solid #34b7f1; /* Adjusted border size */
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  width: 100%;
+  max-width: 300px; /* Adjusted max-width */
+  box-sizing: border-box;
+}
+
+/* Phone number input field for LinkedIn */
+.phone-number-input.linkedin {
+  border-left: 5px solid #00aaff;
+}
+
+/* Phone number input field for Email */
+.phone-number-input.email {
+  border-left: 5px solid #ff4466;
+}
+
+/* Phone number input field for GitHub */
+.phone-number-input.github {
+  border-left: 5px solid #00ff99;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .contact-form-content {
+    padding: 25px;
+  }
+
+  .contact-form-title {
+    font-size: 2.2em;
+  }
+
+  .contact-card i {
+    font-size: 2.2em;
+  }
+
+  .contact-card-title {
+    font-size: 1.3em;
+  }
+
+  .contact-card-description {
+    font-size: 0.9em;
+  }
+
+  .phone-number-display p,
+  .phone-number-input {
+    font-size: 15px; /* Adjust font size for consistency */
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-form-content {
+    padding: 15px;
+  }
+
+  .contact-form-title {
+    font-size: 1.8em;
+  }
+
+  .contact-card {
+    padding: 10px;
+  }
+
+  .contact-card i {
+    font-size: 1.8em;
+  }
+
+  .contact-card-title {
+    font-size: 1.1em;
+  }
+
+  .contact-card-description {
+    font-size: 0.8em;
+  }
+
+  .phone-number-display,
+  .phone-number-input {
+    padding: 8px;
+    font-size: 14px; /* Match font size */
+  }
+
+  .phone-number-display p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form-content {
+    padding: 10px;
+  }
+
+  .contact-form-title {
+    font-size: 1.6em;
+  }
+
+  .contact-card {
+    padding: 8px;
+  }
+
+  .contact-card i {
+    font-size: 1.6em;
+  }
+
+  .contact-card-title {
+    font-size: 1em;
+  }
+
+  .contact-card-description {
+    font-size: 0.7em;
+  }
+
+  .phone-number-display,
+  .phone-number-input {
+    padding: 6px;
+    font-size: 13px; /* Match font size for smaller screens */
+  }
+
+  .phone-number-display p {
+    font-size: 13px;
+  }
+}

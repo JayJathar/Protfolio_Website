@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:Wght@500&diplay=swap');
+
+
+:root{
+
+
+    --yellow-theme-background-color : #1d1d1d;
+    --yellow-theme-background-color : #ffdd40;
+    --yellow-theme-background-color : #fffff;
+    --yellow-theme-background-color : #181818;
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+html {
+    font-size: 100%;
+    height: 100%;
+}
+body{
+    background-color: var(--yellow-theme-background-color);
+    height: 100;
+}
+
+
+#root{
+    height: 100%;
+    
+}
+

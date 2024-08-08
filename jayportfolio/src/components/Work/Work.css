@@ -1,0 +1,177 @@
+/* General body styling */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #121212; /* Dark background for a modern look */
+  color: #e0e0e0; /* Light text color for contrast */
+}
+
+/* Work container styling */
+.work-container {
+  padding: 20px; /* Reduced padding for mobile */
+  background: linear-gradient(135deg, rgba(40, 44, 52, 0.9), rgba(16, 20, 24, 0.9)), url('https://images.unsplash.com/photo-1517440800-b9b2d3f6b7e2'); /* Futuristic background image with gradient overlay */
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  animation: moveBackground 30s linear infinite; /* Background movement animation */
+}
+
+/* Work title styling */
+.work-title {
+  text-align: center;
+  color: #00d2ff; /* Bright cyan color for the title */
+  font-size: 1.8rem; /* Slightly reduced for mobile */
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+}
+
+/* Work content container styling */
+.work-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px; /* Adjusted for mobile */
+  margin: 0 auto;
+}
+
+/* Card container styling */
+.work-card {
+  background: #1e1e1e; /* Dark card background for contrast */
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  width: 100%; /* Full width on mobile */
+  max-width: 350px; /* Maximum width for better fit */
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  border: 2px solid transparent; /* Initial border for transition effect */
+}
+
+/* Card hover effects */
+.work-card:hover {
+  transform: translateY(-6px); /* Slight lift effect */
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 216, 255, 0.6); /* Bright cyan glow */
+  border: 2px solid #00d2ff; /* Cyan border on hover */
+}
+
+.work-card:active {
+  transform: scale(0.98); /* Slightly shrink the card */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 216, 255, 0.4); /* Less intense glow */
+  border: 2px solid #00bcd4; /* Darker cyan border when active */
+}
+
+/* Image styling */
+.work-image {
+  width: 100%;
+  height: 150px; /* Adjusted for mobile */
+  object-fit: cover; /* Ensure the image covers the area */
+  border-bottom: 1px solid #333;
+}
+
+/* Information container styling */
+.work-info {
+  padding: 10px;
+  height: auto; /* Adjust height automatically */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden; /* Ensure no overflow in the container */
+}
+
+/* Project title styling */
+.work-project-title {
+  font-size: 1.4rem; /* Reduced font size for mobile */
+  margin-bottom: 8px;
+  color: #00d2ff; /* Cyan color for the project title */
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Add subtle text shadow */
+}
+
+/* Description styling */
+.work-description {
+  font-size: 0.9rem; /* Smaller font size for readability */
+  color: #b0b0b0; /* Light gray text color */
+  margin-bottom: 15px;
+  line-height: 1.6;
+  flex-grow: 1; /* Allow description to grow */
+  overflow-wrap: break-word; /* Ensure long words are wrapped */
+  word-wrap: break-word; /* Ensure long words are wrapped */
+}
+
+/* Link styling */
+.work-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #00bcd4; /* Cyan color for the link */
+  font-weight: bold;
+  font-size: 0.9rem; /* Adjusted for mobile */
+  transition: color 0.3s ease;
+}
+
+/* Link hover effect */
+.work-link:hover {
+  color: #00a3c4; /* Darker cyan on hover */
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .work-title {
+    font-size: 1.6rem; /* Slightly smaller title on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .work-container {
+    padding: 15px; /* Consistent padding for smaller screens */
+  }
+
+  .work-card {
+    max-width: 90%; /* Ensure cards use most of the screen width */
+    margin: 10px 0; /* Margin for spacing */
+  }
+
+  .work-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .work-title {
+    font-size: 1.4rem; /* Smaller title font on smaller screens */
+  }
+
+  .work-image {
+    height: 140px; /* Further reduced height for images */
+  }
+
+  .work-description {
+    font-size: 0.85rem; /* Slightly smaller description font */
+  }
+}
+
+@media (max-width: 480px) {
+  .work-card {
+    max-width: 100%; /* Full width on very small screens */
+    margin: 10px 0; /* Vertical margins for spacing */
+  }
+
+  .work-title {
+    font-size: 1.2rem; /* Further reduced title font */
+  }
+
+  .work-image {
+    height: 120px; /* Further reduced height for images */
+  }
+
+  .work-description {
+    font-size: 0.8rem; /* Further reduced font size */
+  }
+}
+
+/* Animation for the background */
+@keyframes moveBackground {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
