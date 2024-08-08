@@ -8,7 +8,8 @@
 /* Body Styling */
 body {
   font-family: 'Arial', sans-serif;
-  background-image: url('C:/Users/jayhj/jay portfolio website/jayportfolio/public/images/ai image.png'); /* Ensure the correct path */
+  background-image: url('https://storage.googleapis.com/jay-portfolio-eb329.appspot.com/assets/ai-image.png');
+  /* Ensure the correct path */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -17,7 +18,8 @@ body {
   padding: 0;
   position: relative;
   min-height: 100vh;
-  color: #e0e0e0; /* Light gray text for better contrast */
+  color: #e0e0e0;
+  /* Light gray text for better contrast */
 }
 
 /* About Section Styling */
@@ -26,8 +28,10 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 20px; /* Reduced padding for smaller screens */
-  background: rgba(0, 0, 0, 0.5); /* Darker overlay for improved contrast */
+  padding: 20px;
+  /* Reduced padding for smaller screens */
+  background: rgba(0, 0, 0, 0.5);
+  /* Darker overlay for improved contrast */
 }
 
 /* About Content Container */
@@ -35,14 +39,16 @@ body {
   position: relative;
   max-width: 800px;
   width: 100%;
-  background: rgba(0, 0, 0, 0.8); /* Darker background with more transparency */
+  background: rgba(0, 0, 0, 0.8);
+  /* Darker background with more transparency */
   border-radius: 16px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
   animation: fadeIn 1s ease-out, moveBackground 30s linear infinite;
   overflow: hidden;
   text-align: center;
   padding: 20px;
-  backdrop-filter: blur(8px); /* Blurring effect for background */
+  backdrop-filter: blur(8px);
+  /* Blurring effect for background */
 }
 
 /* Dark Overlay */
@@ -53,7 +59,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Darker overlay for better readability */
+  background: rgba(0, 0, 0, 0.6);
+  /* Darker overlay for better readability */
   border-radius: 16px;
   z-index: 0;
 }
@@ -61,7 +68,8 @@ body {
 /* Title Styling */
 .about-title {
   font-size: 2rem;
-  color: #00ff99; /* Futuristic green */
+  color: #00ff99;
+  /* Futuristic green */
   margin-bottom: 20px;
   font-weight: 700;
   font-family: 'Roboto', sans-serif;
@@ -72,19 +80,22 @@ body {
 }
 
 .about-title::after {
-  content: '🤖'; /* AI-themed icon */
+  content: '🤖';
+  /* AI-themed icon */
   position: absolute;
   top: -10px;
   right: 10px;
   font-size: 1.5rem;
-  color: #00ff99; /* Futuristic green */
+  color: #00ff99;
+  /* Futuristic green */
 }
 
 /* Text Styling */
 .static-text {
   font-size: 1rem;
   line-height: 1.6;
-  color: #d0d0d0; /* Light gray for better readability */
+  color: #d0d0d0;
+  /* Light gray for better readability */
   transition: opacity 0.3s ease;
   opacity: 0;
   transform: translateY(20px);
@@ -97,6 +108,7 @@ body {
 
 /* Work Experience */
 .about-text {
+  padding: 30px;
   margin-top: 20px;
 }
 
@@ -118,19 +130,37 @@ ul li {
 
 /* Keyframe Animations */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes moveBackground {
-  0% { background-position: 0 0; }
-  100% { background-position: 100% 100%; }
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 100% 100%;
+  }
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Media Queries for Responsiveness */
