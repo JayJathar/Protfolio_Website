@@ -12,13 +12,15 @@ permissions:
   contents: read
   pull-requests: write
 jobs:
-  build_and_preview:
+  build:
     runs-on: ubuntu-latest
+    env:
+      CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
     steps:
-      - uses: actions/checkout@v4
-      - run: npm i && npm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
+    - name: Build and Deploy
+    - run: npx your-command
+    - uses: FirebaseExtended/action-hosting-deploy@v0
+      with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_JAY_PORTFOLIO_EB329 }}'
           projectId: jay-portfolio-eb329
