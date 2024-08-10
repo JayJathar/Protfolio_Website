@@ -6,14 +6,14 @@ import Resume from './containers/resume';
 import Skills from './containers/skills';
 import Contact from './containers/contact';
 import Navbar from './components/navBar';
-import Hero from './components/Hero/Hero';
+
 import Work from './components/Work/Work';
 function App() {
   return (
     <div className="App">
       <Navbar />
       <div className="main-content">
-        <Hero />
+   
         <Routes>
           <Route index path='/' element={<Home />} />
           <Route path='/home' element={<Home />}/>

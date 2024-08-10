@@ -6,7 +6,6 @@ const About = () => {
 
   const handleBoxClick = (e) => {
     // Prevents click events inside the text from propagating to the container
-    e.stopPropagation();
     setIsVisible(!isVisible);
   };
 
