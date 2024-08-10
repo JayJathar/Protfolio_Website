@@ -2,13 +2,7 @@ import React, { useState } from "react";
 import "./styles.css"; // Import CSS file for styling
 
 const About = () => {
-  const [isVisible, setIsVisible] = useState(true);
-
-  const handleBoxClick = (e) => {
-    // Prevents click events inside the text from propagating to the container
-    e.stopPropagation();
-    setIsVisible(!isVisible);
-  };
+  const [isVisible] = useState(true);
 
   return (
     <div className="about-container">

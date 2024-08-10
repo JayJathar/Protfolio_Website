@@ -5,7 +5,7 @@ const ResumePage = () => {
   return (
     <div className="resume-container">
       <iframe
-        src="https://drive.google.com/file/d/1a5l9gJT8txx291KFtd7Lsc8qEYhCbIPw/preview"
+        src=" https://drive.google.com/file/d/1zT8rCQn3SUSWo5P2Bm8tgGsQRQ92kQar/preview"   
         type="application/pdf"
         width="100%"
         height="100%"
