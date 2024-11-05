@@ -1,6 +1,8 @@
 import React from 'react';
 import './Work.css';
-
+import billingSystem from '../../assets/billingSystem.png'
+import blogImage from '../../assets/blog.png'
+import portfolioImage from '../../assets/Portfolio.png'
 const Work = () => {
   return (
     <div className="work-container">
@@ -8,7 +10,7 @@ const Work = () => {
       <div className="work-content">
         {/* Example project cards */}
         <div className="work-card">
-          <img src="https://tse4.mm.bing.net/th?id=OIG3.PeYSbPQfbg8RhNvP_L_V&w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Project Thumbnail" className="work-image" /><hr></hr>
+        <img src={billingSystem} alt="Billing System Thumbnail" className="work-image" /><hr />
           <div className="work-info">
             <h3 className="work-project-title">Billing System</h3>
             <p className="work-description">
@@ -20,7 +22,7 @@ const Work = () => {
         </div>
         
         <div className="work-card">
-          <img src="https://sheknowsseo.co/wp-content/uploads/2024/04/change-blog-post-url.webp" alt="Project Thumbnail" className="work-image" /><hr></hr>
+        <img src={blogImage} alt="Blog Website Thumbnail" className="work-image" /><hr />
           <div className="work-info">
             <h3 className="work-project-title">Blog Website</h3>
             <p className="work-description">
@@ -32,7 +34,7 @@ const Work = () => {
         </div>
 
         <div className="work-card">
-          <img src="https://tse2.mm.bing.net/th?id=OIG3.FVbpNsDDod8Z5WG38ET6&w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Project Thumbnail" className="work-image" /><br></br><hr></hr>
+        <img src={portfolioImage} alt="Portfolio Website Thumbnail" className="work-image" /><hr />
           <div className="work-info">
             <h3 className="work-project-title">Portfolio Website</h3>
             <p className="work-description">
