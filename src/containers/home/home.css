@@ -1,167 +1,617 @@
-/* General body styling */
-body {
+@import url("https://fonts.googleapis.com/css2?family=Clash+Display:wght@600;700&family=Cabinet+Grotesk:wght@300;400;500;700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
-  background-color: #f4f4f9;
+  padding: 0;
 }
-
-/* Home container styling */
-.home-container {
+html,
+body {
   width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
+  overflow-x: hidden;
 }
 
-/* Hero section styling */
-.hero-section {
+/* ══════════════════════════════════════════
+   ROOT — variables come from app.css
+══════════════════════════════════════════ */
+.p-root {
+  font-family: "Cabinet Grotesk", sans-serif;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    var(--bg-primary) 0%,
+    var(--bg-secondary) 100%
+  );
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
   position: relative;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ── Particle canvas ── */
+.p-particle-canvas {
+  position: fixed;
+  inset: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://storage.googleapis.com/jay-portfolio-eb329.appspot.com/assets/ai-image.png');
-  /* Adjust path as needed */
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
-  animation: moveBackground 30s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(0.5px);
+  opacity: 0.85;
 }
 
-/* Overlay styling */
-.overlay {
+/* ── Grid bg ── */
+.p-grid-bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  /* Slightly darker overlay */
-}
-
-/* Home content wrapper styling */
-.home-content-wrapper {
-  position: relative;
+  inset: 0;
+  pointer-events: none;
   z-index: 2;
-  color: #fff;
-  text-align: center;
-  padding: 30px;
-  background: rgba(0, 0, 0, 0.7);
-  /* Darker background */
-  border-radius: 12px;
-  backdrop-filter: blur(8px);
-  /* Softer blur */
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
-  /* Adjusted shadow */
-  animation: fadeIn 2s ease-in-out;
-  max-width: 600px;
-  margin: 0 20px;
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 80px 80px;
 }
 
-/* Home title styling */
-.home-title {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  font-family: 'Poppins', sans-serif;
+/* ── Glows ── */
+.p-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+}
+.p-g1 {
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, var(--glow1) 0%, transparent 65%);
+  top: -300px;
+  right: -300px;
+}
+.p-g2 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--glow2) 0%, transparent 65%);
+  bottom: -200px;
+  left: -150px;
+}
+.p-g3 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--glow3) 0%, transparent 65%);
+  top: 50%;
+  left: 45%;
+}
+
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+.p-hero {
+  position: relative;
+  z-index: 5;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* FIXED: safer navbar spacing */
+  padding: 6rem 4rem 6rem;
+  padding-top: clamp(5.5rem, 10vh, 7rem);
+
+  gap: 5rem;
+}
+
+.p-left {
+  flex: 1;
+  max-width: 680px;
+}
+
+/* ── Tag ── */
+.p-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent-soft);
+  border: 0.5px solid var(--accent-border);
+  border-radius: 100px;
+  padding: 5px 16px;
+  font-size: 11px;
+  color: var(--accent-label);
+  font-weight: 500;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  margin-bottom: 2.2rem;
+  animation: up 0.7s 0.1s ease both;
+  transition: background 0.4s, border-color 0.4s, color 0.4s;
+}
+.p-tdot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+  animation: bl 2s infinite;
 }
 
-/* Home content styling */
-.home-content {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+/* ── Headline ── */
+.p-headline {
+  font-family: "Clash Display", sans-serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text-primary);
+  animation: fadeUp 0.8s ease forwards;
+  transition: color 0.4s;
+}
+.p-muted {
+  color: var(--text-faint);
+  transition: color 0.4s;
+}
+.p-accent {
+  color: var(--accent);
+  position: relative;
+  display: inline-block;
+  transition: color 0.4s;
+}
+.p-accent::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  animation: lg 0.8s 0.8s ease both;
+  transform-origin: left;
+  transition: background 0.4s;
 }
 
-/* CTA and download button styling */
-.cta-button,
-.download-button {
-  padding: 0.8rem 2rem;
+/* ── Animated word ── */
+.p-word {
+  color: var(--accent);
+  display: inline-block;
+  min-width: 1px;
+  white-space: nowrap;
+  transition: color 0.4s;
+}
+.p-word-in {
+  animation: wordIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.p-word-out {
+  animation: wordOut 0.35s cubic-bezier(0.55, 0, 1, 0.45) both;
+}
+
+/* ── Sub paragraph ── */
+.p-sub {
   font-size: 1.1rem;
-  background-color: #ff6f61;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 480px;
+  margin: 2rem 0 2.8rem;
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeUp 1s 0.3s ease forwards;
+  transition: color 0.4s;
+}
+.p-sub strong {
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: color 0.4s;
+}
+
+/* ── Buttons ── */
+.p-btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  animation: up 0.7s 0.35s ease both;
+}
+.p-bm {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
   color: #fff;
   border: none;
-  border-radius: 25px;
+  padding: 1rem 2.2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: "Cabinet Grotesk", sans-serif;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(255, 105, 97, 0.4);
-  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  text-decoration: none;
-  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+.p-bm:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 8px 20px rgba(255, 77, 77, 0.3);
+  transform: translateY(-2px) scale(1.03);
+}
+.p-bm:active {
+  transform: scale(0.98);
 }
 
-.cta-button:hover,
-.download-button:hover {
-  background-color: #e65c50;
-  transform: scale(1.03);
-  box-shadow: 0 10px 25px rgba(255, 69, 0, 0.6);
+.p-bo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--text-muted);
+  border: 0.5px solid var(--border);
+  padding: 1rem 2.2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: "Cabinet Grotesk", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.p-bo:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px) scale(1.02);
+}
+.p-bo:active {
+  transform: scale(0.98);
+}
+.p-arr {
+  transition: transform 0.2s;
+  font-size: 14px;
+  display: inline-block;
 }
 
-/* Keyframes for fadeIn animation */
-@keyframes fadeIn {
+/* ══════════════════════════════════════════
+   PHOTO PANEL
+══════════════════════════════════════════ */
+.ab-photo-wrap {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  animation: fl 0.8s 0.4s ease both;
+}
+.ab-photo-ring {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  padding: 3px;
+  background: conic-gradient(
+    from 0deg,
+    var(--accent),
+    rgba(255, 160, 90, 0.5),
+    rgba(255, 100, 80, 0.3),
+    var(--accent)
+  );
+  animation: spin-ring 6s linear infinite;
+  box-shadow: 0 0 30px rgba(255, 100, 80, 0.15);
+  transition: box-shadow 0.3s;
+}
+.ab-photo-ring:hover {
+  box-shadow: 0 0 50px rgba(255, 100, 80, 0.35);
+}
+.ab-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 4px solid var(--photo-border);
+  display: block;
+  position: relative;
+  z-index: 1;
+  transition: border-color 0.4s;
+}
+.ab-photo-fallback {
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: var(--photo-fallback-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Clash Display", sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--photo-fallback-c);
+  z-index: 0;
+  transition: background 0.4s, color 0.4s;
+}
+.ab-photo + .ab-photo-fallback {
+  display: none;
+}
+.ab-photo[style*="display: none"] + .ab-photo-fallback {
+  display: flex;
+}
+
+.ab-photo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--badge-bg);
+  border: 0.5px solid var(--badge-border);
+  border-radius: 100px;
+  padding: 5px 14px;
+  font-size: 11px;
+  color: var(--badge-text);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  transition: background 0.4s, border-color 0.4s, color 0.4s;
+}
+.ab-online-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--online-dot);
+  animation: bl 2.5s infinite;
+  transition: background 0.4s;
+}
+
+/* ══════════════════════════════════════════
+   TICKER
+══════════════════════════════════════════ */
+.p-ticker {
+  position: relative;
+  z-index: 5;
+  border-top: 0.5px solid var(--border-subtle);
+  overflow: hidden;
+  padding: 0.9rem 0;
+  display: flex;
+  transition: border-color 0.4s;
+}
+.p-ttrack {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  white-space: nowrap;
+  animation: st 20s linear infinite;
+  padding-right: 3rem;
+}
+.p-ti {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 500;
+  transition: color 0.4s;
+}
+.p-td {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--accent-border);
+  display: inline-block;
+  vertical-align: middle;
+  transition: background 0.4s;
+}
+
+/* ══════════════════════════════════════════
+   KEYFRAMES
+══════════════════════════════════════════ */
+@keyframes up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(22px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
-/* Keyframes for moving background */
-@keyframes moveBackground {
-  0% {
-    background-position: center;
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
   }
-
-  50% {
-    background-position: center 30px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-
+}
+@keyframes fl {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes bl {
+  0%,
   100% {
-    background-position: center;
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+@keyframes lg {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes st {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes wordIn {
+  from {
+    opacity: 0;
+    transform: translateY(45px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes wordOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+@keyframes spin-ring {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(30deg);
   }
 }
 
-/* Media queries for responsiveness */
-@media (max-width: 768px) {
-  .home-content-wrapper {
-    padding: 20px;
+@media (max-width: 800px) {
+  .p-hero {
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    gap: 2.5rem;
+    align-items: flex-start;
+  }
+  .ab-photo-ring {
+    width: 160px;
+    height: 160px;
+  }
+  .p-headline {
+    font-size: 3rem;
   }
 
-  .home-title {
-    font-size: 2rem;
+  .p-hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 6.5rem;
   }
 
-  .home-content {
-    font-size: 1rem;
+  .p-left {
+    max-width: 100%;
   }
 
-  .cta-button,
-  .download-button {
-    padding: 0.6rem 1.5rem;
-    font-size: 1rem;
+  .p-tag {
+    margin-top: 0.5rem;
   }
 }
 
+/* ───────── LAPTOP FIX (1024px) ───────── */
+@media (max-width: 1024px) {
+  .p-hero {
+    padding: 4rem 3rem;
+    gap: 3rem;
+  }
+
+  .p-headline {
+    font-size: 4rem;
+  }
+}
+
+/* ───────── TABLET (900px) ───────── */
+@media (max-width: 900px) {
+  .p-hero {
+    flex-wrap: wrap;
+  }
+
+  .p-left {
+    max-width: 100%;
+  }
+}
+
+/* ───────── MOBILE (800px) ───────── */
+@media (max-width: 800px) {
+  .p-hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    padding: 2rem 1.5rem;
+  }
+
+  .p-btns {
+    width: 100%;
+  }
+
+  .p-bm,
+  .p-bo {
+    width: 100%;
+  }
+
+  .ab-photo-ring {
+    width: 160px;
+    height: 160px;
+  }
+
+  .p-headline {
+    font-size: 3rem;
+  }
+  .p-tag {
+    margin-top: 3.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .p-hero {
+    padding: 2rem 1.2rem;
+  }
+
+  .p-headline {
+    font-size: 2.6rem;
+  }
+
+  .p-sub {
+    font-size: 1rem;
+  }
+
+  .ab-photo-ring {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* ───────── EXTRA SMALL (480px) ───────── */
 @media (max-width: 480px) {
-  .home-title {
-    font-size: 1.5rem;
+  .p-headline {
+    font-size: 2.2rem;
   }
 
-  .home-content {
+  .p-tag {
+    font-size: 10px;
+  }
+
+  .p-sub {
+    font-size: 0.95rem;
+  }
+
+  .ab-photo-ring {
+    width: 135px;
+    height: 135px;
+  }
+}
+
+/* ───────── VERY SMALL (360px) ───────── */
+@media (max-width: 360px) {
+  .p-headline {
+    font-size: 1.9rem;
+  }
+
+  .p-sub {
     font-size: 0.9rem;
   }
 
-  .cta-button,
-  .download-button {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+  .p-bm,
+  .p-bo {
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
   }
 }

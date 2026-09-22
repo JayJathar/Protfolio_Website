@@ -1,0 +1,1665 @@
+@import url("https://fonts.googleapis.com/css2?family=Clash+Display:wght@600;700&family=Cabinet+Grotesk:wght@300;400;500;700&display=swap");
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   ROOT
+   ========================================================= */
+
+.rv-root {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+
+  font-family: "Cabinet Grotesk", sans-serif;
+
+  background: linear-gradient(
+    180deg,
+    var(--bg-primary) 0%,
+    var(--bg-secondary) 100%
+  );
+
+  color: var(--text-secondary);
+
+  overflow-x: hidden;
+  overflow-y: visible;
+
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+.rv-grid-bg {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+  z-index: 0;
+
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+
+  background-size: 80px 80px;
+}
+
+.rv-glow {
+  position: absolute;
+  border-radius: 50%;
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+.rv-g1 {
+  width: 700px;
+  height: 700px;
+
+  top: -200px;
+  right: -200px;
+
+  background: radial-gradient(circle, var(--glow1) 0%, transparent 62%);
+}
+
+.rv-g2 {
+  width: 500px;
+  height: 500px;
+
+  bottom: -150px;
+  left: -100px;
+
+  background: radial-gradient(circle, var(--glow2) 0%, transparent 62%);
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.rv-header {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+
+  padding: 6rem 3.5rem 2.5rem;
+
+  border-bottom: 0.5px solid var(--border);
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 2rem;
+
+  opacity: 0;
+
+  animation: rv-fadeDown 0.7s 0.1s ease forwards;
+}
+
+.rv-header-left {
+  min-width: 0;
+}
+
+.rv-pill-tag {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+
+  background: var(--accent-soft);
+
+  border: 0.5px solid var(--accent-border);
+
+  border-radius: 100px;
+
+  padding: 4px 14px;
+
+  font-size: 10px;
+
+  color: var(--accent-label);
+
+  font-weight: 500;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  margin-bottom: 1rem;
+}
+
+.rv-pill-dot {
+  width: 5px;
+  height: 5px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--accent);
+
+  animation: rv-pulse 2s infinite;
+}
+
+.rv-page-title {
+  font-family: "Clash Display", sans-serif;
+
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  color: var(--text-primary);
+
+  letter-spacing: -0.02em;
+
+  margin-bottom: 0.6rem;
+}
+
+.rv-page-title span {
+  color: var(--accent);
+}
+
+.rv-page-sub {
+  font-size: 0.76rem;
+
+  color: var(--text-faint);
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  line-height: 1.5;
+}
+
+/* =========================================================
+   HEADER RIGHT
+   ========================================================= */
+
+.rv-header-right {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 0.8rem;
+
+  flex-shrink: 0;
+}
+
+.rv-btn-row {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.rv-btn-red,
+.rv-btn-outline {
+  min-height: 44px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  border-radius: 10px;
+
+  font-family: "Cabinet Grotesk", sans-serif;
+
+  font-size: 0.84rem;
+
+  cursor: pointer;
+
+  text-decoration: none;
+
+  transition: transform 0.22s ease, background 0.22s ease,
+    border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.rv-btn-red {
+  background: var(--accent);
+
+  color: #1a0400;
+
+  border: none;
+
+  padding: 0.7rem 1.5rem;
+
+  font-weight: 700;
+}
+
+.rv-btn-red:hover {
+  background: var(--accent-hover);
+
+  box-shadow: 0 8px 24px rgba(255, 80, 64, 0.3);
+
+  transform: translateY(-2px);
+}
+
+.rv-btn-outline {
+  background: var(--card-bg);
+
+  color: var(--text-muted);
+
+  border: 0.5px solid var(--border);
+
+  padding: 0.7rem 1.3rem;
+}
+
+.rv-btn-outline:hover {
+  border-color: var(--accent-border);
+
+  color: var(--accent-label);
+
+  transform: translateY(-2px);
+}
+
+.rv-avail {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  font-size: 10px;
+
+  color: var(--badge-text);
+
+  letter-spacing: 0.07em;
+
+  text-transform: uppercase;
+}
+
+.rv-avail-dot {
+  width: 6px;
+  height: 6px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--online-dot);
+
+  animation: rv-pulse 2.5s infinite;
+}
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.rv-main {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+
+  display: grid;
+
+  /*
+    Sidebar gets enough space for email,
+    skills and technology chips.
+  */
+  grid-template-columns: 270px minmax(0, 1fr);
+
+  align-items: stretch;
+}
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.rv-sidebar {
+  min-width: 0;
+
+  border-right: 0.5px solid var(--border);
+
+  padding: 2rem 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.8rem;
+
+  opacity: 0;
+
+  animation: rv-fadeRight 0.8s 0.25s ease forwards;
+}
+
+.rv-avatar-wrap {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 0.9rem;
+
+  padding-bottom: 1.5rem;
+
+  border-bottom: 0.5px solid var(--border-subtle);
+}
+
+.rv-avatar {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--photo-fallback-bg);
+
+  border: 1.5px solid var(--accent-border);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Clash Display", sans-serif;
+
+  font-size: 1.2rem;
+
+  font-weight: 700;
+
+  color: var(--accent-border);
+
+  position: relative;
+}
+
+.rv-avatar::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -4px;
+
+  border-radius: 50%;
+
+  border: 1px dashed var(--accent-soft);
+
+  animation: rv-spin 12s linear infinite;
+}
+
+.rv-av-name {
+  font-family: "Clash Display", sans-serif;
+
+  font-size: 0.9rem;
+
+  font-weight: 700;
+
+  color: var(--text-primary);
+}
+
+.rv-av-role {
+  font-size: 0.7rem;
+
+  color: var(--text-faint);
+
+  letter-spacing: 0.05em;
+
+  margin-top: 2px;
+
+  line-height: 1.4;
+}
+
+/* =========================================================
+   SIDEBAR SECTIONS
+   ========================================================= */
+
+.rv-sec {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.8rem;
+}
+
+.rv-sec-title {
+  font-size: 9px;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+
+  color: var(--text-faint);
+
+  padding-bottom: 0.5rem;
+
+  border-bottom: 0.5px solid var(--border-subtle);
+}
+
+/* =========================================================
+   INFO
+   ========================================================= */
+
+.rv-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.65rem;
+}
+
+.rv-info-k {
+  font-size: 9px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  color: var(--text-faint);
+
+  margin-bottom: 1px;
+}
+
+.rv-info-v {
+  font-size: 0.78rem;
+
+  color: var(--text-muted);
+
+  font-weight: 500;
+
+  overflow-wrap: anywhere;
+}
+
+.rv-info-v.open {
+  color: var(--online-dot);
+
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+}
+
+.rv-info-v.open::before {
+  content: "";
+
+  width: 5px;
+  height: 5px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--online-dot);
+
+  animation: rv-pulse 2s infinite;
+}
+
+/* =========================================================
+   SKILLS
+   ========================================================= */
+
+.rv-skill-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.65rem;
+}
+
+.rv-skill-head {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 5px;
+}
+
+.rv-skill-name {
+  min-width: 0;
+
+  font-size: 0.75rem;
+
+  color: var(--text-muted);
+}
+
+.rv-skill-pct {
+  flex-shrink: 0;
+
+  font-size: 0.68rem;
+
+  color: var(--accent-border);
+}
+
+.rv-skill-track {
+  width: 100%;
+
+  height: 2px;
+
+  background: var(--border);
+
+  border-radius: 2px;
+
+  overflow: hidden;
+}
+
+.rv-skill-fill {
+  height: 100%;
+
+  border-radius: 2px;
+
+  background: linear-gradient(90deg, var(--accent), var(--accent-label));
+
+  width: 0%;
+
+  transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.rv-stat-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 7px;
+}
+
+.rv-stat-pill {
+  min-width: 0;
+
+  background: var(--accent-soft);
+
+  border: 0.5px solid var(--accent-border);
+
+  border-radius: 10px;
+
+  padding: 0.65rem 0.75rem;
+
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.rv-stat-pill:hover {
+  background: rgba(255, 100, 80, 0.12);
+
+  border-color: var(--accent);
+}
+
+.rv-stat-n {
+  display: block;
+
+  font-family: "Clash Display", sans-serif;
+
+  font-size: 1.15rem;
+
+  font-weight: 700;
+
+  color: var(--accent);
+
+  line-height: 1;
+}
+
+.rv-stat-l {
+  display: block;
+
+  font-size: 9px;
+
+  color: var(--text-faint);
+
+  letter-spacing: 0.07em;
+
+  margin-top: 2px;
+}
+
+/* =========================================================
+   TECHNOLOGIES
+   ========================================================= */
+
+.rv-tag-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 6px;
+}
+
+.rv-tag-chip {
+  max-width: 100%;
+
+  font-size: 10px;
+
+  padding: 4px 9px;
+
+  border-radius: 6px;
+
+  background: var(--card-bg);
+
+  border: 0.5px solid var(--border);
+
+  color: var(--text-muted);
+
+  letter-spacing: 0.04em;
+
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.rv-tag-chip:hover {
+  background: var(--accent-soft);
+
+  border-color: var(--accent-border);
+
+  color: var(--accent-label);
+}
+
+/* =========================================================
+   PDF VIEWER
+   ========================================================= */
+
+.rv-viewer {
+  min-width: 0;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  opacity: 0;
+
+  animation: rv-fadeUp 0.8s 0.4s ease forwards;
+}
+
+.rv-chrome {
+  width: 100%;
+
+  height: 46px;
+
+  flex-shrink: 0;
+
+  background: var(--card-bg);
+
+  border-bottom: 0.5px solid var(--border);
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 0 1.4rem;
+
+  gap: 12px;
+}
+
+.rv-dots {
+  display: flex;
+
+  flex-shrink: 0;
+
+  gap: 7px;
+}
+
+.rv-dot {
+  width: 11px;
+  height: 11px;
+
+  border-radius: 50%;
+}
+
+.rv-dot:nth-child(1) {
+  background: rgba(255, 95, 86, 0.65);
+}
+
+.rv-dot:nth-child(2) {
+  background: rgba(255, 189, 46, 0.65);
+}
+
+.rv-dot:nth-child(3) {
+  background: rgba(39, 201, 63, 0.65);
+}
+
+.rv-url-bar {
+  min-width: 0;
+
+  flex: 1;
+
+  height: 26px;
+
+  background: var(--card-bg);
+
+  border: 0.5px solid var(--border);
+
+  border-radius: 7px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 0 12px;
+
+  gap: 7px;
+
+  font-size: 10px;
+
+  color: var(--text-faint);
+
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+.rv-lock {
+  flex-shrink: 0;
+
+  font-size: 9px;
+
+  color: rgba(39, 201, 63, 0.6);
+}
+
+.rv-chrome-btns {
+  display: flex;
+
+  flex-shrink: 0;
+
+  gap: 6px;
+}
+
+.rv-chrome-btn {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  background: var(--card-bg);
+
+  border: 0.5px solid var(--border);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 13px;
+
+  color: var(--text-muted);
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.rv-chrome-btn:hover {
+  background: var(--accent-soft);
+
+  border-color: var(--accent-border);
+
+  color: var(--accent-label);
+}
+
+.rv-frame {
+  position: relative;
+
+  width: 100%;
+
+  background: var(--bg-secondary);
+
+  overflow: hidden;
+}
+
+.rv-iframe {
+  display: block;
+
+  width: 100%;
+
+  height: 75vh;
+
+  min-height: 600px;
+
+  border: none;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.rv-footer {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+
+  border-top: 0.5px solid var(--border);
+
+  padding: 1rem 3.5rem;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  opacity: 0;
+
+  animation: rv-fadeUp 0.6s 0.6s ease forwards;
+}
+
+.rv-fstats {
+  display: flex;
+
+  gap: 2.5rem;
+}
+
+.rv-fstat {
+  display: flex;
+
+  align-items: baseline;
+
+  gap: 5px;
+}
+
+.rv-fn {
+  font-family: "Clash Display", sans-serif;
+
+  font-size: 0.95rem;
+
+  font-weight: 700;
+
+  color: var(--accent);
+}
+
+.rv-fl {
+  font-size: 9px;
+
+  letter-spacing: 0.09em;
+
+  text-transform: uppercase;
+
+  color: var(--text-faint);
+}
+
+.rv-fright {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  font-size: 10px;
+
+  color: var(--text-faint);
+
+  letter-spacing: 0.06em;
+}
+
+.rv-fpipe {
+  width: 1px;
+
+  height: 10px;
+
+  background: var(--border);
+}
+
+/* =========================================================
+   FALLBACK
+   ========================================================= */
+
+.rv-fallback {
+  min-height: 500px;
+
+  padding: 2rem;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 1rem;
+
+  text-align: center;
+}
+
+.rv-fallback-icon {
+  font-size: 3rem;
+
+  opacity: 0.4;
+}
+
+.rv-fallback-title {
+  font-family: "Clash Display", sans-serif;
+
+  font-size: 1.2rem;
+
+  font-weight: 700;
+
+  color: var(--text-muted);
+}
+
+.rv-fallback-sub {
+  max-width: 320px;
+
+  font-size: 0.85rem;
+
+  color: var(--text-faint);
+
+  line-height: 1.6;
+}
+
+.rv-fallback-btns {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-top: 0.5rem;
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes rv-fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rv-fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes rv-fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rv-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes rv-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   LAPTOP — 1200px
+   ========================================================= */
+
+@media (max-width: 1200px) {
+  .rv-header {
+    padding: 2.5rem 2.5rem 2.2rem;
+  }
+
+  .rv-main {
+    grid-template-columns:
+      250px
+      minmax(0, 1fr);
+  }
+
+  .rv-sidebar {
+    padding: 1.8rem 1.3rem;
+  }
+
+  .rv-footer {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+/* =========================================================
+   TABLET — 1024px
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  .rv-header {
+    padding: 2rem 1.8rem;
+  }
+
+  .rv-page-title {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+  }
+
+  .rv-main {
+    grid-template-columns:
+      225px
+      minmax(0, 1fr);
+  }
+
+  .rv-sidebar {
+    padding: 1.5rem 1rem;
+
+    gap: 1.5rem;
+  }
+
+  .rv-info-v {
+    overflow-wrap: anywhere;
+  }
+
+  .rv-tag-chip {
+    font-size: 9px;
+
+    padding: 4px 7px;
+  }
+
+  .rv-chrome {
+    padding: 0 1rem;
+  }
+
+  .rv-iframe {
+    height: 70vh;
+
+    min-height: 550px;
+  }
+
+  .rv-footer {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* =========================================================
+   TABLET — 900px
+   ========================================================= */
+
+@media (max-width: 900px) {
+  /*
+    Space for fixed mobile navbar.
+  */
+
+  .rv-root {
+    padding-top: 68px;
+  }
+
+  .rv-header {
+    padding: 2rem 1.5rem 1.8rem;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 1.5rem;
+  }
+
+  .rv-header-left {
+    width: 100%;
+  }
+
+  .rv-header-right {
+    width: 100%;
+
+    align-items: flex-start;
+  }
+
+  .rv-main {
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .rv-sidebar {
+    width: 100%;
+
+    border-right: none;
+
+    border-bottom: 0.5px solid var(--border);
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 1.5rem;
+
+    padding: 1.5rem;
+  }
+
+  .rv-avatar-wrap {
+    grid-column: 1 / -1;
+
+    width: 100%;
+
+    padding-bottom: 1.2rem;
+  }
+
+  .rv-viewer {
+    width: 100%;
+  }
+
+  .rv-iframe {
+    width: 100%;
+
+    height: 70vh;
+
+    min-height: 520px;
+  }
+
+  .rv-footer {
+    padding: 1rem 1.5rem;
+  }
+}
+
+/* =========================================================
+   TABLET / MOBILE — 768px
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .rv-root {
+    padding-top: 66px;
+  }
+
+  .rv-header {
+    padding: 1.7rem 1.25rem;
+  }
+
+  .rv-page-title {
+    font-size: clamp(2.1rem, 8vw, 3rem);
+  }
+
+  .rv-page-sub {
+    max-width: 380px;
+
+    line-height: 1.5;
+  }
+
+  .rv-btn-row {
+    width: 100%;
+  }
+
+  .rv-btn-red,
+  .rv-btn-outline {
+    min-height: 43px;
+  }
+
+  .rv-sidebar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    padding: 1.3rem;
+
+    gap: 1.3rem;
+  }
+
+  .rv-chrome {
+    height: 44px;
+
+    padding: 0 0.8rem;
+
+    gap: 8px;
+  }
+
+  .rv-url-bar {
+    min-width: 0;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+  }
+
+  .rv-iframe {
+    height: 68vh;
+
+    min-height: 480px;
+  }
+
+  .rv-footer {
+    flex-wrap: wrap;
+
+    padding: 1rem 1.25rem;
+  }
+}
+
+/* =========================================================
+   MOBILE — 600px
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .rv-root {
+    padding-top: 64px;
+  }
+
+  /* ---------- HEADER ---------- */
+
+  .rv-header {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 1.2rem;
+
+    padding: 1.4rem 1rem 1.3rem;
+  }
+
+  .rv-header-left {
+    width: 100%;
+
+    order: 1;
+  }
+
+  .rv-pill-tag {
+    margin-bottom: 0.8rem;
+  }
+
+  .rv-page-title {
+    font-size: clamp(2.15rem, 12vw, 2.9rem);
+
+    line-height: 0.95;
+
+    margin-bottom: 0.65rem;
+  }
+
+  .rv-page-sub {
+    font-size: 0.63rem;
+
+    line-height: 1.6;
+
+    letter-spacing: 0.08em;
+
+    max-width: 280px;
+  }
+
+  /* ---------- BUTTON AREA ---------- */
+
+  .rv-header-right {
+    width: 100%;
+
+    order: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 0.8rem;
+  }
+
+  .rv-btn-row {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+  .rv-btn-red,
+  .rv-btn-outline {
+    width: 100%;
+
+    min-height: 44px;
+
+    justify-content: center;
+
+    padding: 0.75rem 1rem;
+  }
+
+  .rv-avail {
+    width: 100%;
+
+    justify-content: flex-start;
+
+    font-size: 9px;
+  }
+
+  /* ---------- SIDEBAR ---------- */
+
+  .rv-sidebar {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 1.25rem 1rem;
+
+    gap: 1.4rem;
+  }
+
+  .rv-avatar-wrap {
+    width: 100%;
+
+    padding-bottom: 1rem;
+  }
+
+  .rv-sec {
+    width: 100%;
+  }
+
+  .rv-info-v {
+    max-width: 100%;
+
+    overflow-wrap: anywhere;
+
+    word-break: break-word;
+  }
+
+  /* ---------- SKILLS ---------- */
+
+  .rv-skill-list {
+    gap: 0.75rem;
+  }
+
+  .rv-skill-head {
+    margin-bottom: 6px;
+  }
+
+  /* ---------- STATS ---------- */
+
+  .rv-stat-grid {
+    width: 100%;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* ---------- TAGS ---------- */
+
+  .rv-tag-list {
+    gap: 5px;
+  }
+
+  .rv-tag-chip {
+    font-size: 9px;
+
+    padding: 5px 8px;
+  }
+
+  /* ---------- PDF CHROME ---------- */
+
+  .rv-chrome {
+    height: 42px;
+
+    padding: 0 0.55rem;
+
+    gap: 6px;
+  }
+
+  .rv-dots {
+    display: none;
+  }
+
+  .rv-url-bar {
+    flex: 1;
+
+    min-width: 0;
+
+    height: 26px;
+
+    font-size: 8px;
+
+    padding: 0 8px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+  }
+
+  .rv-chrome-btns {
+    flex-shrink: 0;
+
+    gap: 5px;
+  }
+
+  .rv-chrome-btn {
+    width: 27px;
+    height: 27px;
+  }
+
+  .rv-iframe {
+    width: 100%;
+
+    height: 68vh;
+
+    min-height: 420px;
+  }
+
+  /* ---------- FOOTER ---------- */
+
+  .rv-footer {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 1rem;
+
+    gap: 1rem;
+  }
+
+  .rv-fstats {
+    width: 100%;
+
+    justify-content: space-between;
+
+    gap: 1rem;
+  }
+
+  .rv-fright {
+    width: 100%;
+
+    flex-wrap: wrap;
+
+    line-height: 1.5;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE — 480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .rv-root {
+    padding-top: 62px;
+  }
+
+  .rv-header {
+    padding: 1.25rem 0.9rem 1.2rem;
+  }
+
+  .rv-page-title {
+    font-size: 2.15rem;
+  }
+
+  .rv-page-sub {
+    font-size: 0.58rem;
+  }
+
+  .rv-pill-tag {
+    font-size: 8px;
+
+    padding: 4px 10px;
+  }
+
+  .rv-sidebar {
+    padding: 1.1rem 0.9rem;
+  }
+
+  .rv-avatar {
+    width: 44px;
+    height: 44px;
+
+    font-size: 1rem;
+  }
+
+  .rv-av-name {
+    font-size: 0.84rem;
+  }
+
+  .rv-av-role {
+    font-size: 0.62rem;
+  }
+
+  .rv-sec-title {
+    font-size: 8px;
+  }
+
+  .rv-info-k {
+    font-size: 8px;
+  }
+
+  .rv-info-v {
+    font-size: 0.72rem;
+  }
+
+  .rv-stat-pill {
+    padding: 0.6rem;
+  }
+
+  .rv-stat-n {
+    font-size: 1rem;
+  }
+
+  .rv-stat-l {
+    font-size: 8px;
+  }
+
+  .rv-iframe {
+    height: 65vh;
+
+    min-height: 390px;
+  }
+
+  .rv-fstats {
+    justify-content: flex-start;
+
+    flex-wrap: wrap;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONE — 375px
+   ========================================================= */
+
+@media (max-width: 375px) {
+  .rv-root {
+    padding-top: 60px;
+  }
+
+  .rv-header {
+    padding: 1.1rem 0.75rem;
+  }
+
+  .rv-page-title {
+    font-size: 1.9rem;
+  }
+
+  .rv-page-sub {
+    font-size: 0.54rem;
+  }
+
+  .rv-sidebar {
+    padding: 1rem 0.75rem;
+  }
+
+  .rv-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .rv-av-name {
+    font-size: 0.8rem;
+  }
+
+  .rv-av-role {
+    font-size: 0.57rem;
+  }
+
+  .rv-tag-chip {
+    font-size: 8px;
+
+    padding: 4px 6px;
+  }
+
+  .rv-chrome {
+    padding: 0 0.45rem;
+  }
+
+  .rv-url-bar {
+    font-size: 7px;
+  }
+
+  .rv-chrome-btn {
+    width: 26px;
+    height: 26px;
+  }
+
+  .rv-iframe {
+    min-height: 360px;
+  }
+
+  .rv-fstats {
+    justify-content: flex-start;
+
+    flex-wrap: wrap;
+
+    gap: 0.8rem;
+  }
+
+  .rv-fright {
+    font-size: 8px;
+  }
+}

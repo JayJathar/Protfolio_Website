@@ -1,20 +1,133 @@
-.App {
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-  color: #333;
+@import url("https://fonts.googleapis.com/css2?family=Clash+Display:wght@600;700&family=Cabinet+Grotesk:wght@300;400;500;700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-header {
-  background-color: #282c34;
+/* ══════════════════════════════════════════
+   THEME VARIABLES — SINGLE SOURCE OF TRUTH
+   Every component uses these variables.
+   Never define colors anywhere else.
+══════════════════════════════════════════ */
+
+:root[data-theme="dark"] {
+  --bg-primary: #07070d;
+  --bg-secondary: #0a0a12;
+
+  --text-primary: #f0ece6;
+  --text-secondary: #e8e4de;
+  --text-muted: rgba(232, 228, 222, 0.45);
+  --text-faint: rgba(232, 228, 222, 0.18);
+  --text-rgb: 232, 228, 222;
+
+  --accent: #ff6450;
+  --accent-hover: #ff7d6d;
+  --accent-label: #ff9080;
+  --accent-soft: rgba(255, 100, 80, 0.08);
+  --accent-border: rgba(255, 100, 80, 0.22);
+
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --border: rgba(255, 255, 255, 0.07);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+
+  --nav-glass: rgba(7, 7, 13, 0.75);
+  --nav-border: rgba(255, 255, 255, 0.06);
+
+  --grid-line: rgba(255, 255, 255, 0.018);
+
+  --glow1: rgba(255, 100, 80, 0.08);
+  --glow2: rgba(120, 80, 255, 0.06);
+  --glow3: rgba(80, 200, 180, 0.04);
+
+  --badge-bg: rgba(34, 216, 122, 0.08);
+  --badge-border: rgba(34, 216, 122, 0.2);
+  --badge-text: rgba(34, 216, 122, 0.8);
+  --online-dot: #22d87a;
+
+  --photo-border: #07070d;
+  --photo-fallback-bg: #0f0f18;
+  --photo-fallback-c: rgba(255, 100, 80, 0.4);
+}
+
+:root[data-theme="light"] {
+  --bg-primary: #f5f3f0;
+  --bg-secondary: #ede9e3;
+
+  --text-primary: #1a1714;
+  --text-secondary: #2a2520;
+  --text-muted: rgba(26, 23, 20, 0.45);
+  --text-faint: rgba(26, 23, 20, 0.2);
+  --text-rgb: 26, 23, 20;
+
+  --accent: #e8402a;
+  --accent-hover: #d43520;
+  --accent-label: #c93520;
+  --accent-soft: rgba(232, 64, 42, 0.08);
+  --accent-border: rgba(232, 64, 42, 0.22);
+
+  --card-bg: rgba(0, 0, 0, 0.03);
+  --border: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.06);
+
+  --nav-glass: rgba(245, 243, 240, 0.85);
+  --nav-border: rgba(0, 0, 0, 0.08);
+
+  --grid-line: rgba(0, 0, 0, 0.04);
+
+  --glow1: rgba(232, 64, 42, 0.06);
+  --glow2: rgba(120, 80, 255, 0.04);
+  --glow3: rgba(80, 200, 180, 0.03);
+
+  --badge-bg: rgba(16, 160, 80, 0.07);
+  --badge-border: rgba(16, 160, 80, 0.2);
+  --badge-text: rgba(10, 120, 60, 0.85);
+  --online-dot: #0a9e52;
+
+  --photo-border: #f5f3f0;
+  --photo-fallback-bg: #e8e0d8;
+  --photo-fallback-c: rgba(232, 64, 42, 0.35);
+}
+
+/* ══════════════════════════════════════════
+   GLOBAL STYLES
+══════════════════════════════════════════ */
+
+html,
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
+  font-family: "Cabinet Grotesk", sans-serif;
+}
+
+.app-container {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: linear-gradient(180deg, var(--bg-primary), var(--bg-secondary));
+  transition: background 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.main-content {
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-primary);
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }

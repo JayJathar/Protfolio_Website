@@ -13,7 +13,7 @@
   }
   
   .navbar__container__logo {
-    color: yellow;
+    var(--color-text);
     text-decoration: none;
   }
   
