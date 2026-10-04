@@ -1,11 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
 import "./resume.css";
 
-const FILE_ID = "1svgiirOg5In7xUxP39n_zerhZSY_7AGr";
+const FILE_ID = "1a7Rs8xC4CCdCqp43beq5Z-nZGcVRCEzF";
 
-const PREVIEW_URL = `https://drive.google.com/file/d/${FILE_ID}/preview`;
-const DOWNLOAD_URL = `https://drive.google.com/uc?export=download&id=${FILE_ID}`;
-const DRIVE_URL = `https://drive.google.com/file/d/${FILE_ID}/view`;
+const PREVIEW_URL = `https://drive.google.com/file/d/1a7Rs8xC4CCdCqp43beq5Z-nZGcVRCEzF/preview`;
+const DOWNLOAD_URL = `https://drive.google.com/uc?export=download&id=1a7Rs8xC4CCdCqp43beq5Z-nZGcVRCEzF`;
+const DRIVE_URL = `https://drive.google.com/file/d/1a7Rs8xC4CCdCqp43beq5Z-nZGcVRCEzF/view`;
 
 const INFO = [
   { k: "Location", v: "India", open: false },
@@ -26,7 +26,7 @@ const SKILLS = [
 ];
 
 const STATS = [
-  { n: "1", l: "Years" },
+  { n: "6+", l: "Months Experience" },
   { n: "4+", l: "Projects" },
 ];
 
@@ -47,7 +47,7 @@ const TAGS = [
 ];
 
 const FOOTER = [
-  { n: "1", l: "Years" },
+  { n: "6+", l: "Months Experience" },
   { n: "4+", l: "Projects" },
   { n: "MERN", l: "Stack" },
 ];

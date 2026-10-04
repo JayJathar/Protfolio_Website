@@ -4,21 +4,6 @@ import "./Experience.css";
 /* ── Experience Data ── */
 const EXPERIENCES = [
   {
-    role: "React Developer Intern",
-    company: "CorefinExperts Global Technologies Pvt. Ltd., Pune",
-    type: "Internship",
-    period: "Feb 2026 – May 2026",
-    bullets: [
-      "Developed an admin panel using React.js and TypeScript.",
-      "Implemented CRUD operations using React Query for efficient data handling.",
-      "Built features including questionnaire management, booking system, search and filters.",
-      "Integrated REST APIs and handled dynamic data updates.",
-      "Improved UI responsiveness and component reusability.",
-    ],
-    tech: ["React.js", "TypeScript", "React Query", "REST APIs", "MUI"],
-  },
-
-  {
     role: "React Developer",
     company: "Sassy Infotech Pvt. Ltd., Surat",
     type: "Full-time",
@@ -38,6 +23,21 @@ const EXPERIENCES = [
       "Liquid",
       "Responsive Design",
     ],
+  },
+
+  {
+    role: "React Developer Intern",
+    company: "CorefinExperts Global Technologies Pvt. Ltd., Pune",
+    type: "Internship",
+    period: "Feb 2026 – May 2026",
+    bullets: [
+      "Developed an admin panel using React.js and TypeScript.",
+      "Implemented CRUD operations using React Query for efficient data handling.",
+      "Built features including questionnaire management, booking system, search and filters.",
+      "Integrated REST APIs and handled dynamic data updates.",
+      "Improved UI responsiveness and component reusability.",
+    ],
+    tech: ["React.js", "TypeScript", "React Query", "REST APIs", "MUI"],
   },
 
   {
@@ -83,7 +83,7 @@ const EXPERIENCES = [
 
 /* ── Stats ── */
 const STATS = [
-  { num: "1+", label: "Year Experience" },
+  { num: "6+", label: "Months Experience" },
   { num: "4+", label: "Projects Built" },
   { num: "2", label: "Internships Completed" },
 ];

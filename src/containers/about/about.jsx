@@ -39,7 +39,7 @@ const EDUCATION = [
   {
     type: "Secondary",
     title: "10th (SSC)",
-    place: "L.H.BOGHRA (SHISHUVIHAR) SCHOOL",
+    place: "Good Shapherd Higher Secondary School",
     desc: ["Developed interest in computers and problem-solving"],
   },
   {
